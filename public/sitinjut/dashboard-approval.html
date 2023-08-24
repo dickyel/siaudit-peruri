@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title></title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="/style/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+   
+  </head>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Approval Temuan & Rekomendasi </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-md-4">
+              <h5>Tanggal Upload Temuan</h5>
+              <p>18 Juni 2023</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tanggal Jatuh Tempo</h5>
+              <p>18 Juni 2023</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tingkat Resiko</h5>
+              <p>Sedang</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Deskripsi Nama Temuan</h5>
+              <p>Deskripsi Nama Temuan</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Nomor Temuan</h5>
+              <p>TEM/QWERTY/09/090</p>
+            </div>
+
+          </div>
+
+          <div class="dropdown-divider"></div>
+
+          <div class="row mt-4">
+
+            <div class="col-md-4">
+              <h5>Deskripsi Nama Rekomendasi</h5>
+              <p>Nama Rekomendasi 1</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tanggapan Auditee</h5>
+              <p>Tanggpan 1</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Divisi/Departement</h5>
+              <p>IT</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tanggal Tindak Lanjut</h5>
+              <p>19 Juni 2023</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tindak Lanjut</h5>
+              <p>Baru lagi</p>
+            </div>
+
+            <div class="col-md-4">
+              <h5>Tanggal File Evidence</h5>
+              <p>.19 Juni 2023</p>
+            </div>
+            <div class="col-md-4">
+              <h5>File Evidence</h5>
+              <p>evidence.pdf</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tanggal Update Tindak Lanjut</h5>
+              <p>.............</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Update Tindak Lanjut</h5>
+              <p>...........</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Tanggal Update File Evidence</h5>
+              <p>...........</p>
+            </div>
+
+
+            <div class="col-md-4">
+              <h5>Update File Evidence</h5>
+              <p>...........</p>
+            </div>
+            <div class="col-md-4">
+              <h5>Status Rekomendasi</h5>
+              <select name="" id="" class="form-control">
+                <option value="">Belum sesuai</option>
+                <option value="">Belum ditindaklanjuti</option>
+                <option value="">Sudah sesuai</option>
+                <option value="">Tidak dapat ditindaklanjuti</option>
+              </select>
+            </div>
+            <div class="col-md-8">
+              <h5>Keterangan Feedback</h5>
+              <textarea name="" id=""  rows="5" class="form-control">
+                
+              </textarea>
+            </div>
+            <div class="col-md-4">
+              <h5>Status Semua Tinjauan</h5>
+              <select name="" id="" class="form-control">
+                <option value="">Approved</option>
+                <option value="">Not Approved</option>
+              
+              </select>
+            </div>
+
+            <div class="col-md-12 mt-2">
+              <h5>Tanda Tangan Approval Admin SPI</h5>
+            
+              <canvas id="signatureCanvas" width="770"  height="150" style="border-color: gray;"></canvas>
+              <button onclick="clearSignature()" class="btn btn-outline-secondary">Clear Signature</button>
+            </div>
+        
+          </div>
+
+          <div class="dropdown-divider mt-4 mb-4"></div>
+          
+          <button type="button" class="btn btn-primary">Simpan</button>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <body>
+    <div class="page-dashboard">
+      <div class="d-flex" id="wrapper" data-aos="fade-right">
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading text-center">
+            <img src="/images/logo (2).svg" alt="" class="my-4" width="200px" />
+          </div>
+          <div class="list-group list-group-flush text-center">
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action active"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menuLHA"
+                  class="list-group-item list-group-item-action dropdown-toggle" data-toggle="collapse" aria-expanded="false"
+                  >Menu LHA</a>
+                  <ul class="collapse list-unstyled" id="menuLHA">
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Upload LHA</a>
+                    </li>
+                    <li>
+                      <a href="#" class="list-group-item list-group-item-action" >Input Data Tindak Lanjut</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Assign Data Ke Departemen</a>
+                    </li>
+                  </ul>
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Penerimaan Hasil Tindak Lanjut</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Report</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Master User</a
+                >
+              </li>
+              <li>
+                <a
+                    href=""
+                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                    class="list-group-item list-group-item-action"
+                >
+                  Logout
+                </a>
+                <form id="logout-form" action="" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            </ul>    
+
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <nav
+            class="navbar navbar-store navbar-expand-lg navbar-light fixed-top"
+            data-aos="fade-down"
+          >
+            <button
+              class="btn btn-secondary d-md-none mr-auto mr-2"
+              id="menu-toggle"
+            >
+              &laquo; Menu
+            </button>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto d-none d-lg-flex">
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block mt-2" href="#">
+                      <img src="/images/notif.svg" alt=""  width="32px"/>
+                    </a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  Hi, 
+                    <img
+                      src="/images/icon-user.png"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                    
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
+                    
+                    <a class="dropdown-item" href=""
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    
+                  </div>
+                </li>
+                
+              </ul>
+              <!-- Mobile Menu -->
+              <ul class="navbar-nav d-block d-lg-none mt-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Hi,
+                    <img
+                      src="/images/icon-user.png"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                  </a>  
+                  <div class="dropdown-menu">
+                        <a href="" class="dropdown-item">Dashboard</a>
+                       
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href=""
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                <li class="nav-item">
+                   
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href=""
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+              </ul>
+              
+            </div>
+          </nav>
+
+            <!-- content -->
+           
+            <div
+                class="section-content section-dashboard-home"
+                data-aos="fade-up"
+            >
+                <div class="container-fluid">
+                    <div class="dashboard-heading">
+                        <h2 class="dashboard-title">Dashboard</h2>
+                        <p class="dashboard-subtitle">
+                            Lihat 
+                        </p>
+                    </div>
+                    <div class="dashboard-content">
+                      <div class="row">
+                        
+                          <div class="col-md-4">
+                              <div class="card mb-2">
+                                  <div class="card-body">
+                                      <div class="dashboard-card-title">
+                                          Temuan
+                                      </div>
+                                      <div class="dashboard-card-subtitle">
+                                          10
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-md-4">
+                              <div class="card mb-2">
+                                  <div class="card-body">
+                                      <div class="dashboard-card-title">
+                                          Rekomendasi
+                                      </div>
+                                      <div class="dashboard-card-subtitle">
+                                        20
+                                      </div>
+                                      
+                                  
+                                  </div>
+                              </div>
+                          
+                          </div>
+
+                          <div class="col-md-4">
+                              <div class="card mb-2">
+                                  <div class="card-body">
+                                      <div class="dashboard-card-title">
+                                          Status Temuan 
+                                      </div>
+                                      <div>
+                                        <canvas id="temuan" style="height: 226px; width: 100%">
+                                        </canvas>
+                                      </div>
+                                  </div>
+                              </div>
+                          
+                          </div>
+                      </div>
+                      <div class="row mt-3">
+                        
+                          <div class="col-lg-12 col-md-6">
+                            <div class="card">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-4">
+                                    <form class="form" method="" action=''>
+                                      <div class="form-group w-100 mb-3">
+                                          
+                                          <input type="text" name="keyword" class="form-control w-75 d-inline" id="keyword" placeholder="Ketikkan sesuatu" value="">
+                                          <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                                      </div>
+                                    </form>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select name="" id="selectTemuan" class="form-control" onchange="showForm()">
+                                      <option value="">Filter Tahun</option>
+                                      <option value="temuan1">Terpilih Temuan </option>
+                                     
+                                    </select>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <select name="" id="selectTemuan" class="form-control" onchange="showForm()">
+                                      <option value="">Filter Temuan & Rekomendasi</option>
+                                      <option value="temuan1">Terpilih Temuan </option>
+                                     
+                                    </select>
+                                  </div>
+                                 
+
+                                </div>
+
+                                <div class="row mt-2">
+                                  <div class="col-md-12">
+                                    <div class="table-responsive">
+                                      <table class="table table-striped scroll-horizontal-vertical w-100" id="crudTable">
+                                        <thead class="text-center">
+                                          <tr>
+                                            <th>No</th>
+                                            <th>Deskripsi Temuan</th>
+                                            <th>Nomor Temuan</th>
+                                            <th>PIC Unit Kerja/Divisi</th>
+                                            <th>Aksi</th>
+                                          </tr>
+                                        
+                                        </thead>
+                                        <tbody class="text-center">
+                                         <td>
+                                          <input type="checkbox" name="" id="">
+                                         </td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td>   
+                                          <button  class="btn btn-primary " data-toggle="modal" data-target="#myModal">Approval</button>
+                                            <!-- The Modal -->
+                                          
+                                          <span>
+                                            <button class="btn btn-info" >Detail </button>
+                                          </span>
+                                        </td>
+                                        </tbody>
+                                    
+                                      </table>
+                                      <button  class="btn btn-danger ">Kirim ke KA SPI</button>
+                                    </div>
+                                   
+                                  </div>
+                               
+                                </div>
+                              
+                                
+                              </div>
+                            </div>
+
+
+                           
+                          </div>
+                      </div>
+                    </div>
+
+                
+                </div>
+
+              
+            </div>
+        <!-- /#page-content-wrapper -->
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="js/temuan.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+
+    <script>
+      var canvas = document.getElementById('signatureCanvas');
+      var signaturePad = new SignaturePad(canvas);
+
+      function clearSignature() {
+        signaturePad.clear();
+      }
+    </script>
+  </body>
+</html>

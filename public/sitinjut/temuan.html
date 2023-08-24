@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title></title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="./style/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+    
+  </head>
+
+  <body>
+    <div class="page-dashboard">
+      <div class="d-flex" id="wrapper" data-aos="fade-right">
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading text-center">
+            <img src="/images/logo (2).svg" alt="" class="my-4" width="200px" />
+          </div>
+          <div class="list-group list-group-flush text-center">
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menuLHA"
+                  class="list-group-item list-group-item-action active dropdown-toggle" data-toggle="collapse" aria-expanded="false"
+                  >Menu LHA</a>
+                  <ul class="collapse list-unstyled" id="menuLHA">
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Upload LHA</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action active">Input Data Tindak Lanjut</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Assign Data Ke Departemen</a>
+                    </li>
+                  </ul>
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Penerimaan Hasil Tindak Lanjut</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Report</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Master User</a
+                >
+              </li>
+              <li>
+                <a
+                    href=""
+                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                    class="list-group-item list-group-item-action"
+                >
+                  Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            </ul>    
+
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <nav
+            class="navbar navbar-store navbar-expand-lg navbar-light fixed-top"
+            data-aos="fade-down"
+          >
+            <button
+              class="btn btn-secondary d-md-none mr-auto mr-2"
+              id="menu-toggle"
+            >
+              &laquo; Menu
+            </button>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto d-none d-lg-flex">
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block mt-2" href="#">
+                      <img src="/images/notif.svg" alt=""  width="32px"/>
+                    </a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  Hi, 
+                    <img
+                      src="/images/icon-user.png"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                    
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   
+                    
+                    <a class="dropdown-item" href=""
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    
+                  </div>
+                </li>
+                
+              </ul>
+              <!-- Mobile Menu -->
+              <ul class="navbar-nav d-block d-lg-none mt-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Hi,
+                    <img
+                      src="/images/icon-user.png"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                  </a>  
+                  <div class="dropdown-menu">
+                        
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href=""
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                <li class="nav-item">
+                   
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href=""
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+              </ul>
+              
+            </div>
+          </nav>
+
+            <!-- content -->
+           
+            <div
+                class="section-content section-dashboard-home"
+                data-aos="fade-up"
+            >
+                <div class="container-fluid">
+                    <div class="dashboard-heading">
+                        <h2 class="dashboard-title">Temuan & Rekomendasi</h2>
+                        <p class="dashboard-subtitle">
+                            Update & Lihat Temuan & Rekomendasi 
+                        </p>
+                    </div>
+
+                   
+                    <ul class="nav nav-pills nav-justified mt-4">
+                      <li class="nav-item">
+                        <a class="nav-link btn-primary active" aria-current="page" href="#">Tambah Temuan</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Tambah Rekomendasi</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Tabel Temuan</a>
+                      </li>
+                      
+                      <li class="nav-item">
+                        <a class="nav-link ">Tabel Rekomendasi</a>
+                      </li>
+                    </ul>
+
+                    <div id="appForm">
+                      <form id="myForm" class="mt-4" enctype="multipart/form-data" method="post">
+                        <div class="row">
+                          
+                          <div class="col-md-12">
+                            <div class="card mt-2 mb-4">
+                              <div class="card-body">
+                                <header>
+                                  <h5>Tambah Temuan</h5>
+                                  <p>Silahkan tambah temuan dengan melakukan klik tombol tambah temuan</p>
+                                </header>
+                                <div v-for="(row, index) in rows" :key="index">
+                                  <div class="row">
+                                    <div class="col-md-6">
+                                      <div class="form-group mt-2">
+                                        <label for="date_temuan">Pilih Tanggal Temuan</label>
+                                        <input class="form-control" type="date" :id="'date_temuan_' + index" :name="'date_temuan_' + index" v-model="row.date_temuan">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group mt-2">
+                                        <label for="number_temuan">Nomor Temuan</label>
+                                        <input class="form-control" type="text" :id="'number_temuan_' + index" :name="'number_temuan_' + index" v-model="row.number_temuan">
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group mt-2">
+                                        <label for="tempo_temuan">Tanggal Jatuh Tempo</label>
+                                        <input class="form-control" type="date" :id="'tempo_temuan_' + index" :name="'tempo_temuan_' + index" v-model="row.tempo_temuan">
+                                      </div>
+                                      <div class="form-group mt-2">
+                                        <label for="tingkat_resiko">Tingkat Resiko Temuan</label>
+                                        <select :id="'tingkat_resiko_' + index" class="form-control" v-model="row.tingkat_resiko">
+                                          <option value="Sedang">Sedang</option>
+                                          <!-- Add other options here -->
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <div class="form-group mt-2">
+                                        <label for="description_temuan">Deskripsi Temuan</label>
+                                        <textarea class="form-control"  :name="'description_temuan_' + index" :id="'description_temuan_' + index" cols="100%" rows="5" v-model="row.description_temuan"></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                      <button tyoe="button" class="btn btn-danger" @click="deleteRow(index)">Hapus</button>
+                                    </div>
+                                    <hr class="mt-2 mb-3"/>
+                                  </div>
+                                </div>
+                                <button  class="btn btn-primary mt-2">Submit</button>
+                                <button type="button" class="btn btn-info mt-2 ml-2" @click="addRow">Tambah Temuan</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    
+                </div>
+              
+                
+                
+            </div>
+
+           
+        </div>
+        <!-- /#page-content-wrapper -->
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="./vendor/jquery/jquery.slim.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="./js/temuan.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'description_temuan_' + index);
+    </script>
+
+    <script>
+      new Vue({
+        el: '#appForm',
+        data() {
+          return {
+            rows: [
+              {
+                date_temuan: '',
+                number_temuan: '',
+                tempo_temuan: '',
+                tingkat_resiko: '',
+                description_temuan: ''
+              }
+            ]
+          };
+        },
+        methods: {
+          addRow() {
+            this.rows.push({
+              date_temuan: '',
+              number_temuan: '',
+              tempo_temuan: '',
+              tingkat_resiko: '',
+              description_temuan: ''
+            });
+          },
+          deleteRow(row) {
+            const index = this.rows.indexOf(row);
+            if (index > -1) {
+              this.rows.splice(index, 1);
+            }
+          }
+        }
+      });
+
+
+    </script>
+
+
+  </body>
+</html>

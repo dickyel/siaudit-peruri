@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title></title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="style/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js"></script>
+    
+  </head>
+
+  <body>
+    <div class="page-dashboard">
+      <div class="d-flex" id="wrapper" data-aos="fade-right">
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading text-center">
+            <img src="/images/logo (2).svg" alt="" class="my-4" width="200px" />
+          </div>
+          <div class="list-group list-group-flush text-center">
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menuLHA"
+                  class="list-group-item list-group-item-action active dropdown-toggle" data-toggle="collapse" aria-expanded="false"
+                  >Menu LHA</a>
+                  <ul class="collapse list-unstyled" id="menuLHA">
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Upload LHA</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Input Data Tindak Lanjut</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action active">Assign Data Ke Divisi/Departemen</a>
+                    </li>
+                  </ul>
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Penerimaan Hasil Tindak Lanjut</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Report</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Master User</a
+                >
+              </li>
+              <li>
+                <a
+                    href=""
+                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                    class="list-group-item list-group-item-action"
+                >
+                  Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            </ul>    
+
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <nav
+            class="navbar navbar-store navbar-expand-lg navbar-light fixed-top"
+            data-aos="fade-down"
+          >
+            <button
+              class="btn btn-secondary d-md-none mr-auto mr-2"
+              id="menu-toggle"
+            >
+              &laquo; Menu
+            </button>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto d-none d-lg-flex">
+                <li class="nav-item">
+                    <a class="nav-link d-inline-block mt-2" href="#">
+                      <img src="/images/notif.svg" alt=""  width="32px"/>
+                    </a>
+                  </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                  Hi, 
+                    <img
+                      src="/images/icon-user.png"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                    
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    
+                    <a class="dropdown-item" href=""
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    
+                  </div>
+                </li>
+                
+              </ul>
+              <!-- Mobile Menu -->
+              <ul class="navbar-nav d-block d-lg-none mt-3">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    Hi,
+                    <img
+                      src="/images/icon-user.png"
+                      alt=""
+                      class="rounded-circle mr-2 profile-picture"
+                    />
+                  </a>  
+                  <div class="dropdown-menu">
+                        
+                       
+                        <a class="dropdown-item" href=""
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                <li class="nav-item">
+                   
+                 
+                    <a class="dropdown-item" href=""
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+                    <form id="logout-form" action="" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+              </ul>
+              
+            </div>
+          </nav>
+
+          <!-- content -->
+          
+          <div
+              class="section-content section-dashboard-home"
+              data-aos="fade-up"
+          >
+            <div class="container-fluid">
+                <div class="dashboard-heading">
+                    <h2 class="dashboard-title">Assign Data ke Divisi/Departement</h2>
+                    <p class="dashboard-subtitle">
+                        Assign Data ke Divisi/Departement 
+                    </p>
+                </div>
+
+                  
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <header>
+                          <h5>Pilih Assign </h5>
+                          <p>Silahkan assign ke divisi terkait</p>
+                        </header>
+                        <div class="col-md-12">
+                          <div class="form-group mt-2">
+                            <label for="">Pilih Temuan & Rekomendasi</label>
+                            <select name="" id="selectTemuan" class="form-control" onchange="showForm()">
+                              <option value="">Pilih Opsi..</option>
+                              <option value="temuan1">Terpilih Temuan </option>
+                              
+                            </select>
+
+                          </div>
+
+                          <div id="formAssign">
+
+                              <form action="">
+                                <div class="row">
+                                  <div class="col-md-6 mt-2">
+                                    <label for="">Nama Temuan</label>
+                                    <input type="text" class="form-control" disabled>
+                                  </div>
+                                  <div class="col-md-6 mt-2">
+                                    <label for="">Tanggal Dibuat Temuan</label>
+                                    <input type="date" class="form-control" placeholder="23-maret-2023" disabled>
+                                  </div>
+                                  <div class="col-md-6 mt-2">
+                                    <label for="">Nomor Temuan</label>
+                                    <input type="text" class="form-control" disabled>
+                                  </div>
+                                  <div class="col-md-6 mt-2" >
+                                    <label for="">Tanggal Jatuh Tempo</label>
+                                    <input type="date" class="form-control" disabled>
+                                  </div>
+
+                                  <div class="col-md-6 mt-2">
+                                    <label for="">Tingkat Resiko</label>
+                                    <select name="" id="selectTingkat Resiko" class="form-control" disabled>
+                                      <option value="">Tingkat Resiko</option>
+                                      
+                                    </select>
+                                  </div>
+
+                                  <div class="col-md-6 mt-2">
+                                    <label for="Deskripsi Temuan">Deskripsi Temuan</label>
+                                    <textarea name="" id="" cols="30" rows="5" class="form-control" disabled>Deskripsi temuan</textarea>
+                                  </div>
+
+                                  <div class="col-md-12 mt-4 mb-4">
+                                    
+                                  </div>
+
+                                  <div class="col-md-6 mt-2">
+                                    <label for="Deskripsi Temuan">Deskripsi Rekomendasi</label>
+                                    <textarea name="" id="" cols="30" rows="5" class="form-control" >Rekomendasi 1</textarea>
+                                  </div>
+
+                                  <div class="col-md-6 mt-2">
+                                    <label for="Deskripsi Temuan">Tanggapan Auditee Setelah Meeting</label>
+                                    <textarea name="" id="" cols="30" rows="5" class="form-control" >Tanggapan 1</textarea>
+                                  </div>
+
+                                  <div class="col-md-12 mt-2">
+                                    <label for="
+                                    ">Pilih Divisi/Departement untuk dikirim</label>
+                                    <select name="" id="departement" class="form-control">
+                                      <option value="">departement</option>
+                                      
+                                    </select>
+                                  </div>
+
+
+                                  <div class="col-md-12 mt-4 mb-4">
+                                    
+                                  </div>
+
+                                  <div class="col-md-6 mt-2">
+                                    <label for="Deskripsi Temuan">Deskripsi Rekomendasi</label>
+                                    <textarea name="" id="" cols="30" rows="5" class="form-control" >Rekomendasi 2</textarea>
+                                  </div>
+
+                                  <div class="col-md-6 mt-2">
+                                    <label for="Deskripsi Temuan">Tanggapan Auditee Setelah Meeting</label>
+                                    <textarea name="" id="" cols="30" rows="5" class="form-control" >Tanggapan 2</textarea>
+                                  </div>
+
+                                  <div class="col-md-12 mt-2">
+                                    <label for="
+                                    ">Pilih Divisi/Departement untuk dikirim</label>
+                                    <select name="" id="departement" class="form-control">
+                                      <option value="">departement</option>
+                                      
+                                    </select>
+                                  </div>
+
+
+                                  <div class="col-md-6 mt-2">
+                                    <button  class="btn btn-primary mt-2">Submit</button>
+                                  </div>
+                                  
+                                  
+                                </div>
+                                
+                              </form>
+                              
+                            
+                          
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>    
+            </div> 
+          </div>
+
+           
+        </div>
+        <!-- /#page-content-wrapper -->
+
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="js/temuan.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+
+    <script src="https://cdn.ckeditor.com/4.15.0/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace( 'editor' );
+    </script>
+
+    <script>
+      function showForm() {
+          var selectElement = document.getElementById("selectTemuan");
+          var formContainer = document.getElementById("formAssign");
+          var infoContainer = document.getElementById("infoContainer");
+
+          var selectedOption = selectElement.value;
+
+          if (selectedOption) {
+            formContainer.style.display = "block";
+          } else {
+            formContainer.style.display = "none";
+
+          }
+        }
+    </script>
+
+
+  </body>
+</html>

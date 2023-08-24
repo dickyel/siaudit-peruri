@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title></title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="/style/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    
+   
+  </head>
+
+  <body>
+    <div class="page-dashboard">
+      <div class="d-flex" id="wrapper" data-aos="fade-right">
+        <!-- Sidebar -->
+        <div class="border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading text-center">
+            <img src="/images/logo (2).svg" alt="" class="my-4" width="200px" />
+          </div>
+          <div class="list-group list-group-flush text-center">
+            
+            <ul class="list-unstyled">
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action"
+                  >Dashboard</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#menuLHA"
+                  class="list-group-item list-group-item-action active dropdown-toggle" data-toggle="collapse" aria-expanded="false"
+                  >Menu LHA</a>
+                  <ul class="collapse list-unstyled" id="menuLHA">
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Upload LHA</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Input Data Tindak Lanjut</a>
+                    </li>
+                    <li>
+                      <a href="" class="list-group-item list-group-item-action ">Assign Data Ke Departemen</a>
+                    </li>
+                  </ul>
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Penerimaan Hasil Tindak Lanjut</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action "
+                  >Report</a
+                >
+              </li>
+              <li>
+                <a
+                  href=""
+                  class="list-group-item list-group-item-action active"
+                  >Master User</a
+                >
+              </li>
+              <li>
+                <a
+                    href=""
+                    onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                    class="list-group-item list-group-item-action"
+                >
+                  Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            </ul>
+           
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <nav
+          class="navbar navbar-store navbar-expand-lg navbar-light fixed-top"
+          data-aos="fade-down"
+        >
+          <button
+            class="btn btn-secondary d-md-none mr-auto mr-2"
+            id="menu-toggle"
+          >
+            &laquo; Menu
+          </button>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto d-none d-lg-flex">
+              <li class="nav-item">
+                  <a class="nav-link d-inline-block mt-2" href="#">
+                    <img src="/images/notif.svg" alt=""  width="32px"/>
+                  </a>
+                </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                Hi, 
+                  <img
+                    src="/images/icon-user.png"
+                    alt=""
+                    class="rounded-circle mr-2 profile-picture"
+                  />
+                  
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  
+                  <a class="dropdown-item" href=""
+                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      Logout
+                  </a>
+                  <form id="logout-form" action="" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+                  
+                </div>
+              </li>
+              
+            </ul>
+            <!-- Mobile Menu -->
+            <ul class="navbar-nav d-block d-lg-none mt-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Hi,
+                  <img
+                    src="/images/icon-user.png"
+                    alt=""
+                    class="rounded-circle mr-2 profile-picture"
+                  />
+                </a>  
+                <div class="dropdown-menu">
+                      
+                     
+                      <a class="dropdown-item" href=""
+                          onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          Logout
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                  </div>
+              </li>
+              <li class="nav-item">
+                 
+               
+                  <a class="dropdown-item" href=""
+                      onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                      Logout
+                  </a>
+                  <form id="logout-form" action="" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+              </li>
+            </ul>
+            
+          </div>
+          </nav>
+
+            <!-- content -->
+           
+            <div
+                class="section-content section-dashboard-home"
+                data-aos="fade-up"
+            >
+                <div class="container-fluid">
+                    <div class="dashboard-heading">
+                        <h2 class="dashboard-title">Master Menu User</h2>
+                        <p class="dashboard-subtitle">
+                            Buat Profile Master Menu 
+                        </p>
+                    </div>
+                    <div class="dashboard-content mt-4">
+
+                      <button class="btn btn-primary" id="btnBuatForm btn btn-success" onclick="toggleForm()">Tambahkan Profil Baru</button>
+                      <form id="myForm" class="hidden" action="" enctype="multipart/form-data" method="post">
+                       
+                        <!-- Isi formulir di sini -->
+                        <div class="row">
+                          <div class="col-md-12 mt-4">
+                            <div class="card ">
+                              <div class="card-body">
+                               
+                                <div class="photo d-flex">
+                                  <div class="position-relative me-20">
+                                    <img src="images/icon-user.png" alt="" class="avatar img-fluid" />
+                                    <div
+                                    class="avatar-overlay position-absolute top-0 d-flex justify-content-center align-items-center">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 6H5H21" stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z"
+                                            stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M14 11V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M10 11V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                  </div>
+                                  <div class="image-upload">
+                                    <label for="avatar">
+                                      <svg width="90" height="90" viewBox="0 0 90 90" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="45" cy="45" r="45" fill="#E7EAF5" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M45 39.375C42.7981 39.375 40.9679 40.7216 40.3127 42.5332C40.1693 42.9297 39.8162 43.2128 39.398 43.2665C37.4362 43.5183 36 45.1013 36 46.9286C36 48.919 37.7105 50.625 39.9375 50.625C40.5588 50.625 41.0625 51.1287 41.0625 51.75C41.0625 52.3713 40.5588 52.875 39.9375 52.875C36.5726 52.875 33.75 50.2638 33.75 46.9286C33.75 44.0997 35.7853 41.7878 38.4536 41.1547C39.5996 38.7573 42.1173 37.125 45 37.125C48.5711 37.125 51.6055 39.6452 52.1224 43.0137C54.4461 43.4763 56.25 45.4474 56.25 47.8929C56.25 50.6955 53.8807 52.875 51.075 52.875C50.4537 52.875 49.95 52.3713 49.95 51.75C49.95 51.1287 50.4537 50.625 51.075 50.625C52.7428 50.625 54 49.3507 54 47.8929C54 46.435 52.7428 45.1607 51.075 45.1607C50.4537 45.1607 49.95 44.657 49.95 44.0357C49.95 41.5128 47.7862 39.375 45 39.375Z"
+                                            fill="#0C145A" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M45 52.875C44.3787 52.875 43.875 52.3713 43.875 51.75V45C43.875 44.3787 44.3787 43.875 45 43.875C45.6213 43.875 46.125 44.3787 46.125 45V51.75C46.125 52.3713 45.6213 52.875 45 52.875Z"
+                                            fill="#0C145A" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M41.9545 48.0455C41.5152 47.6062 41.5152 46.8938 41.9545 46.4545L44.2045 44.2045C44.6438 43.7652 45.3562 43.7652 45.7955 44.2045C46.2348 44.6438 46.2348 45.3562 45.7955 45.7955L43.5455 48.0455C43.1062 48.4848 42.3938 48.4848 41.9545 48.0455Z"
+                                            fill="#0C145A" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M44.2045 44.2045C44.6438 43.7652 45.3562 43.7652 45.7955 44.2045L48.0455 46.4545C48.4848 46.8938 48.4848 47.6062 48.0455 48.0455C47.6062 48.4848 46.8938 48.4848 46.4545 48.0455L44.2045 45.7955C43.7652 45.3562 43.7652 44.6438 44.2045 44.2045Z"
+                                            fill="#0C145A" />
+                                      </svg>
+                                    </label>
+                                    <input id="avatar" type="file" name="avatar" accept="image/png, image/jpeg" />
+                                  </div>
+
+                                 
+                                </div>
+
+                                <div class="form-group mt-2">
+                                  <label for="nama_lengkap">Nama Lengkap</label>
+                                  <input class="form-control" type="text">
+                                </div>
+
+                                <div class="form-group mt-2">
+                                  <label for="nomor_pokok">Nomor Pokok</label>
+                                  <input class="form-control" type="text">
+                                </div>
+
+                                <div class="form-group mt-2">
+                                  <label for="roles">Roles</label>
+                                  <select name="" id="" class="form-control">
+                                    <option value="">Super Admin</option>
+                                    <option value="">Kadep</option>
+                                  </select>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                  <label for="password">Password</label>
+                                  <input class="form-control" id="password" type="password">
+                                  <input type="button" class="button btn btn-outline-danger" value="Generate" onClick="generate();">
+                                </div>
+
+                                <div class="form-group mt-2">
+                                  <button class="btn btn-primary">Simpan</button>
+                                </div>
+
+                              </div>
+                            </div>    
+                          </div>
+                           
+                        </div>  
+                      </form>
+                    </div>
+                </div>
+            </div>
+        <!-- /#page-content-wrapper -->
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+
+    <script src="/vendor/jquery/jquery.slim.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="js/temuan.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <!-- Menu Toggle Script -->
+    <script>
+      $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+
+    <script>
+      function toggleForm() {
+        var form = document.getElementById("myForm");
+        form.classList.toggle("hidden");
+      }
+    </script>
+
+    <script></script>
+
+  </body>
+</html>
